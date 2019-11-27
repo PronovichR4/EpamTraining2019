@@ -16,9 +16,9 @@ public class Task3 {
             if (value % i == 0) {
                 sum = sum + i;
             }
-            if (sum == value) {
-                result = true;
-            }
+        }
+        if (sum == value) {
+            result = true;
         }
         return result;
     }
