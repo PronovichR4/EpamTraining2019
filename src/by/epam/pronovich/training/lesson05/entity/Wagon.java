@@ -1,8 +1,7 @@
 package by.epam.pronovich.training.lesson05.entity;
 
 public class Wagon {
-
-
+    
     private int number;
 
     public Wagon() {
