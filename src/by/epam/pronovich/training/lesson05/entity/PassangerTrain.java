@@ -21,6 +21,20 @@ public class PassangerTrain {
         this.wagons = new ArrayList<Wagon>();
     }
 
+    public Wagon getWagon(int number) {
+        Wagon result = null;
+        if (number > 0 && number <= getWagons().size()) {
+            result = getWagons().get(number - 1);
+        }
+        return result;
+    }
+
+    public boolean addWagon( Wagon wagon) {
+        int number = getWagons().size();
+        wagon.setNumber(number + 1);
+        return getWagons().add(wagon);
+    }
+
     public String getDestination() {
         return destination;
     }

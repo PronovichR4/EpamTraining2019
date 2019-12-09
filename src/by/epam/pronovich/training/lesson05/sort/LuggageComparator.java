@@ -11,6 +11,6 @@ public class LuggageComparator implements Comparator<PassangerTrain> {
 
     @Override
     public int compare(PassangerTrain o1, PassangerTrain o2) {
-        return Integer.compare(trainLogic.calculateAllWeightLuggage(o1), trainLogic.calculateAllWeightLuggage(o2));
+        return Integer.compare(trainLogic.calcAllWeightLuggage(o1), trainLogic.calcAllWeightLuggage(o2));
     }
 }

@@ -8,21 +8,13 @@ import java.util.List;
 
 public class PassangerTrainLogic {
 
-    private Wagon getWagon(PassangerTrain train, int number) {
-        Wagon result = null;
-        if (number > 0 && number <= train.getWagons().size()) {
-            result = train.getWagons().get(number - 1);
-        }
-        return result;
-    }
-
-    public int getPassangers(PassangerTrain train, int number) {
+    public int calcPassangersInWagon(PassangerTrain train, int numberOfWagon) {
         int result = 0;
-        if (!checkNumberOfWagon(train, number)) {
+        if (!checkNumberOfWagon(train, numberOfWagon)) {
             System.out.print("Not correct number of wagon ");
             return result;
         }
-        Wagon wagon = getWagon(train, number);
+        Wagon wagon = train.getWagon(numberOfWagon);
         if (wagon instanceof PassangerWagon) {
             PassangerWagon passangerWagon = (PassangerWagon) wagon;
             result = passangerWagon.getQuantityOFPassengers();
@@ -32,38 +24,34 @@ public class PassangerTrainLogic {
         return result;
     }
 
-    public boolean addWagon(PassangerTrain train, Wagon wagon) {
-        int number = train.getWagons().size();
-        wagon.setNumber(number + 1);
-        return train.getWagons().add(wagon);
-    }
-
-    public int getQuantityOfWagons(PassangerTrain train) {
-        return train.getWagons().size();
-    }
-
     public boolean addPassanger(PassangerTrain train, int numberOfWagon, int luggage) {
         PassangerWagonLogic wagonLogic = new PassangerWagonLogic();
         boolean result = false;
-        Wagon wagon = getWagon(train, numberOfWagon);
+        if (!checkNumberOfWagon(train, numberOfWagon)) {
+            System.out.println("Not correct number of wagon ");
+            return result;
+        }
+        Wagon wagon = train.getWagon(numberOfWagon);
         if (wagon instanceof PassangerWagon) {
             PassangerWagon currentWagon = (PassangerWagon) wagon;
             if (wagonLogic.checkWeight(luggage) && wagonLogic.checkFreePlace(currentWagon)) {
-                result = wagonLogic.addPassanger(currentWagon) && wagonLogic.addLuggage(currentWagon, luggage);
+                currentWagon.addPassanger();
+                currentWagon.addLuggage(luggage);
+                result = true;
             }
         }
         return result;
     }
 
-    private boolean checkNumberOfWagon(PassangerTrain train, int number) {
+    private boolean checkNumberOfWagon(PassangerTrain train, int numberOfWagon) {
         boolean result = true;
-        if (number < 0 || number > getQuantityOfWagons(train)) {
+        if (numberOfWagon < 1 || numberOfWagon > train.getQuantityOfWagons()) {
             result = false;
         }
         return result;
     }
 
-    public int calculateAllPassangers(PassangerTrain train) {
+    public int calcAllPassangers(PassangerTrain train) {
         int result = 0;
         List<Wagon> wagons = train.getWagons();
         for (Wagon wagon : wagons) {
@@ -75,7 +63,7 @@ public class PassangerTrainLogic {
         return result;
     }
 
-    public int calculateMaxQuantityPassangers(PassangerTrain train) {
+    public int calMaxQuantityPassangers(PassangerTrain train) {
         int result = 0;
         List<Wagon> wagons = train.getWagons();
         for (Wagon wagon : wagons) {
@@ -87,13 +75,13 @@ public class PassangerTrainLogic {
         return result;
     }
 
-    public int calculateProcentLoadinPassamgers(PassangerTrain train) {
-        double i = (double) 100 / calculateMaxQuantityPassangers(train);
-        i = i * calculateAllPassangers(train);
+    public int calcProcentLoadinPassamgers(PassangerTrain train) {
+        double i = (double) 100 / calMaxQuantityPassangers(train);
+        i = i * calcAllPassangers(train);
         return (int) i;
     }
 
-    public int calculateAllWeightLuggage(PassangerTrain train) {
+    public int calcAllWeightLuggage(PassangerTrain train) {
         int result = 0;
         List<Wagon> wagons = train.getWagons();
         for (Wagon wagon : wagons) {
