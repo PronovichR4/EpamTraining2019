@@ -1,11 +1,10 @@
 package by.epam.pronovich.training.lesson05.entity;
 
-public class Wagon {
+import java.util.Objects;
+
+public abstract class Wagon {
 
     private int number;
-
-    public Wagon() {
-    }
 
     public int getNumber() {
         return number;
@@ -17,6 +16,22 @@ public class Wagon {
 
     @Override
     public String toString() {
-        return "Номер вагона=" + number;
+        return "Wagon{" +
+                "number=" + number +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Wagon wagon = (Wagon) o;
+        return number == wagon.number;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(number);
     }
 }

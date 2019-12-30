@@ -1,6 +1,7 @@
 package by.epam.pronovich.training.lesson05.entity;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Depo {
 
@@ -21,4 +22,26 @@ public class Depo {
         }
         return result;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Depo depo = (Depo) o;
+        return Objects.equals(trains, depo.trains);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(trains);
+    }
+
+    @Override
+    public String toString() {
+        return "Depo{" +
+                "trains=" + trains +
+                '}';
+    }
+
 }

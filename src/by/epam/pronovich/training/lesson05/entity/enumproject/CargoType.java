@@ -1,4 +1,4 @@
-package by.epam.pronovich.training.lesson05.type;
+package by.epam.pronovich.training.lesson05.entity.enumproject;
 
 public enum CargoType {
 

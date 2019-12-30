@@ -1,24 +1,49 @@
 package by.epam.pronovich.training.lesson05.entity;
 
+import by.epam.pronovich.training.lesson05.entity.enumproject.City;
+
+import java.time.DayOfWeek;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class PassangerTrain {
 
-    private String destination;
+    private City destination;
     private String number;
-    private String departureTime;
     private Locomotive locomotive;
     private List<Wagon> wagons;
+    private DayOfWeek dayOfWeek;
+    private LocalTime time;
 
-
-    public PassangerTrain(String destination, String number, String departureTime, Locomotive locomotive) {
+    public PassangerTrain(City destination, String number, Locomotive locomotive, DayOfWeek dayOfWeek, LocalTime time) {
         this.destination = destination;
         this.number = number;
-        this.departureTime = departureTime;
         this.locomotive = locomotive;
         this.wagons = new ArrayList<Wagon>();
+        this.dayOfWeek = dayOfWeek;
+        this.time = time;
+    }
+
+    public void setWagons(List<Wagon> wagons) {
+        this.wagons = wagons;
+    }
+
+    public DayOfWeek getDayOfWeek() {
+        return dayOfWeek;
+    }
+
+    public void setDayOfWeek(DayOfWeek dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
+    }
+
+    public LocalTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalTime time) {
+        this.time = time;
     }
 
     public Wagon getWagon(int number) {
@@ -29,17 +54,17 @@ public class PassangerTrain {
         return result;
     }
 
-    public boolean addWagon( Wagon wagon) {
+    public boolean addWagon(Wagon wagon) {
         int number = getWagons().size();
         wagon.setNumber(number + 1);
         return getWagons().add(wagon);
     }
 
-    public String getDestination() {
+    public City getDestination() {
         return destination;
     }
 
-    public void setDestination(String destination) {
+    public void setDestination(City destination) {
         this.destination = destination;
     }
 
@@ -49,14 +74,6 @@ public class PassangerTrain {
 
     public void setNumber(String number) {
         this.number = number;
-    }
-
-    public String getDepartureTime() {
-        return departureTime;
-    }
-
-    public void setDepartureTime(String departureTime) {
-        this.departureTime = departureTime;
     }
 
     public Locomotive getLocomotive() {
@@ -79,28 +96,29 @@ public class PassangerTrain {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PassangerTrain train = (PassangerTrain) o;
-        return number == train.number &&
-                Objects.equals(destination, train.destination) &&
-                Objects.equals(departureTime, train.departureTime) &&
-                Objects.equals(locomotive, train.locomotive) &&
-                Objects.equals(wagons, train.wagons);
+        PassangerTrain that = (PassangerTrain) o;
+        return destination == that.destination &&
+                Objects.equals(number, that.number) &&
+                Objects.equals(locomotive, that.locomotive) &&
+                Objects.equals(wagons, that.wagons) &&
+                dayOfWeek == that.dayOfWeek &&
+                Objects.equals(time, that.time);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(destination, number, departureTime, locomotive, wagons);
+        return Objects.hash(destination, number, locomotive, wagons);
     }
 
     @Override
     public String toString() {
         return "PassangerTrain{" +
-                "Пункт назначения=" + destination +
-                ", Номер поезда=" + number +
-                ", Время прибытия='" + departureTime + '\'' +
-                ", Тип=" + locomotive.getTypeOfEngine().getDescription() +
-                ", Макс.Скорость=" + locomotive.getMaxSpeed() +
-                ", количество вагонов=" + wagons.size() +
+                "destination=" + destination +
+                ", number='" + number + '\'' +
+                ", locomotive=" + locomotive +
+                ", wagons=" + wagons +
+                ", dayOfWeek=" + dayOfWeek +
+                ", time=" + time +
                 '}';
     }
 }

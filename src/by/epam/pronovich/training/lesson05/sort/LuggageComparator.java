@@ -7,7 +7,7 @@ import java.util.Comparator;
 
 public class LuggageComparator implements Comparator<PassangerTrain> {
 
-    PassangerTrainLogic trainLogic = new PassangerTrainLogic();
+    PassangerTrainLogic trainLogic = PassangerTrainLogic.getINSTANCE();
 
     @Override
     public int compare(PassangerTrain o1, PassangerTrain o2) {

@@ -1,6 +1,8 @@
 package by.epam.pronovich.training.lesson05.entity;
 
-import by.epam.pronovich.training.lesson05.type.CargoType;
+import by.epam.pronovich.training.lesson05.entity.enumproject.CargoType;
+
+import java.util.Objects;
 
 public class CargoWagon extends Wagon {
 
@@ -29,6 +31,24 @@ public class CargoWagon extends Wagon {
 
     public int getTonnage() {
         return tonnage;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        CargoWagon that = (CargoWagon) o;
+        return maxCapacity == that.maxCapacity &&
+                maxTonnage == that.maxTonnage &&
+                tonnage == that.tonnage &&
+                cargoType == that.cargoType;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(super.hashCode(), cargoType, maxCapacity, maxTonnage, tonnage);
     }
 
     @Override
