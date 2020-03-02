@@ -5,11 +5,10 @@ import by.epam.pronovich.training.lesson05.dao.impl.FileTrainDao;
 public class DAOProvider {
 
     private static final DAOProvider INSTANCE = new DAOProvider();
+    private TrainDao trainDao = new FileTrainDao();
 
     private DAOProvider() {
     }
-
-    private TrainDao trainDao = new FileTrainDao();
 
     public static DAOProvider getINSTANCE() {
         return INSTANCE;

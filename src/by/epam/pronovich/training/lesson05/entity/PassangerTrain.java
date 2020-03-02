@@ -1,6 +1,7 @@
 package by.epam.pronovich.training.lesson05.entity;
 
 import by.epam.pronovich.training.lesson05.entity.enumproject.City;
+import by.epam.pronovich.training.lesson05.entity.wagon.Wagon;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;
@@ -10,20 +11,40 @@ import java.util.Objects;
 
 public class PassangerTrain {
 
-    private City destination;
     private String number;
+    private City departurePoint;
+    private City destination;
     private Locomotive locomotive;
-    private List<Wagon> wagons;
+    private List<Wagon> wagons = new ArrayList<Wagon>();
     private DayOfWeek dayOfWeek;
-    private LocalTime time;
+    private LocalTime deparureTime;
+    private LocalTime arrivalTime;
 
-    public PassangerTrain(City destination, String number, Locomotive locomotive, DayOfWeek dayOfWeek, LocalTime time) {
-        this.destination = destination;
+    public PassangerTrain() {
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
         this.number = number;
-        this.locomotive = locomotive;
-        this.wagons = new ArrayList<Wagon>();
-        this.dayOfWeek = dayOfWeek;
-        this.time = time;
+    }
+
+    public City getDeparturePoint() {
+        return departurePoint;
+    }
+
+    public void setDeparturePoint(City departurePoint) {
+        this.departurePoint = departurePoint;
+    }
+
+    public City getDestination() {
+        return destination;
+    }
+
+    public void setDestination(City destination) {
+        this.destination = destination;
     }
 
     public void setWagons(List<Wagon> wagons) {
@@ -38,12 +59,20 @@ public class PassangerTrain {
         this.dayOfWeek = dayOfWeek;
     }
 
-    public LocalTime getTime() {
-        return time;
+    public LocalTime getDeparureTime() {
+        return deparureTime;
     }
 
-    public void setTime(LocalTime time) {
-        this.time = time;
+    public void setDeparureTime(LocalTime deparureTime) {
+        this.deparureTime = deparureTime;
+    }
+
+    public LocalTime getArrivalTime() {
+        return arrivalTime;
+    }
+
+    public void setArrivalTime(LocalTime arrivalTime) {
+        this.arrivalTime = arrivalTime;
     }
 
     public Wagon getWagon(int number) {
@@ -58,22 +87,6 @@ public class PassangerTrain {
         int number = getWagons().size();
         wagon.setNumber(number + 1);
         return getWagons().add(wagon);
-    }
-
-    public City getDestination() {
-        return destination;
-    }
-
-    public void setDestination(City destination) {
-        this.destination = destination;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
     }
 
     public Locomotive getLocomotive() {
@@ -97,12 +110,14 @@ public class PassangerTrain {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PassangerTrain that = (PassangerTrain) o;
-        return destination == that.destination &&
+        return departurePoint == that.departurePoint &&
+                destination == that.destination &&
                 Objects.equals(number, that.number) &&
                 Objects.equals(locomotive, that.locomotive) &&
                 Objects.equals(wagons, that.wagons) &&
                 dayOfWeek == that.dayOfWeek &&
-                Objects.equals(time, that.time);
+                Objects.equals(deparureTime, that.deparureTime) &&
+                Objects.equals(arrivalTime, that.arrivalTime);
     }
 
     @Override
@@ -113,12 +128,14 @@ public class PassangerTrain {
     @Override
     public String toString() {
         return "PassangerTrain{" +
-                "destination=" + destination +
+                "departurePoint=" + departurePoint +
+                ", destination=" + destination +
                 ", number='" + number + '\'' +
                 ", locomotive=" + locomotive +
                 ", wagons=" + wagons +
                 ", dayOfWeek=" + dayOfWeek +
-                ", time=" + time +
+                ", deparureTime=" + deparureTime +
+                ", arrivalTime=" + arrivalTime +
                 '}';
     }
 }

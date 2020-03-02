@@ -1,13 +1,13 @@
 package by.epam.pronovich.training.lesson05.entity.enumproject;
 
-public enum EngineType {
+public enum EngineLocomotiveType {
 
     DIESEL("Дизель-поезд"),
     ELECTRIC("Электропоезд");
 
     private final String description;
 
-    EngineType(String description) {
+    EngineLocomotiveType(String description) {
         this.description = description;
     }
 

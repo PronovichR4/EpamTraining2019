@@ -1,6 +1,6 @@
 package by.epam.pronovich.training.lesson05.entity.enumproject;
 
-public enum ComfortType {
+public enum ComfortWagonType {
 
     COMMON(70, "Плацкартный"),
     COUPE(40, "Купейный"),
@@ -10,7 +10,7 @@ public enum ComfortType {
     private final int maxPassengers;
     private final String description;
 
-    ComfortType(int maxPassengers, String description) {
+    ComfortWagonType(int maxPassengers, String description) {
         this.maxPassengers = maxPassengers;
         this.description = description;
     }

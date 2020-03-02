@@ -1,7 +1,6 @@
 package by.epam.pronovich.training.lesson05.entity;
 
-import by.epam.pronovich.training.lesson05.entity.enumproject.EngineType;
-
+import by.epam.pronovich.training.lesson05.entity.enumproject.EngineLocomotiveType;
 import java.util.Objects;
 
 public class Locomotive {
@@ -9,9 +8,12 @@ public class Locomotive {
     private int ID;
     private static int counterID;
     private int maxSpeed;
-    private EngineType typeOfEngine;
+    private EngineLocomotiveType typeOfEngine;
 
-    public Locomotive(int maxSpeed, EngineType typeOfEngine) {
+    public Locomotive() {
+    }
+
+    public Locomotive(int maxSpeed, EngineLocomotiveType typeOfEngine) {
         this.ID = ++counterID;
         this.maxSpeed = maxSpeed;
         this.typeOfEngine = typeOfEngine;
@@ -25,7 +27,7 @@ public class Locomotive {
         return maxSpeed;
     }
 
-    public EngineType getTypeOfEngine() {
+    public EngineLocomotiveType getTypeOfEngine() {
         return typeOfEngine;
     }
 

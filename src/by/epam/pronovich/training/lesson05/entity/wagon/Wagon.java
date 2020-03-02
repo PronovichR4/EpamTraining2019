@@ -1,4 +1,4 @@
-package by.epam.pronovich.training.lesson05.entity;
+package by.epam.pronovich.training.lesson05.entity.wagon;
 
 import java.util.Objects;
 

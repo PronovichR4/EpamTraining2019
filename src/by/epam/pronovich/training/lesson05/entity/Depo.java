@@ -7,6 +7,9 @@ public class Depo {
 
     private List<PassangerTrain> trains;
 
+    public Depo() {
+    }
+
     public Depo(List<PassangerTrain> trains) {
         this.trains = trains;
     }

@@ -1,11 +1,11 @@
 package by.epam.pronovich.training.lesson05.entity.enumproject;
 
-public enum  City {
-
+public enum City {
     MINSK("Минск"),
     BREST("Брест"),
     VITEBSK("Витебск"),
-    GRODNO("Гродно");
+    GRODNO("Гродно"),
+    GOMEL("Гомель");
 
     private String description;
 

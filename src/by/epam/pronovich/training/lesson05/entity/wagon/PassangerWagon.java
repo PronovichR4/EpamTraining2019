@@ -1,18 +1,21 @@
-package by.epam.pronovich.training.lesson05.entity;
+package by.epam.pronovich.training.lesson05.entity.wagon;
 
-import by.epam.pronovich.training.lesson05.entity.enumproject.ComfortType;
+import by.epam.pronovich.training.lesson05.entity.enumproject.ComfortWagonType;
 
 import java.util.Objects;
 
 public class PassangerWagon extends Wagon {
 
     public static final int MAX_MAS_LUGGAGE_KG = 20;
-    private ComfortType comfortType;
+    private ComfortWagonType comfortType;
     private int maxPassengers;
     private int quantityOFPassengers;
     private int weightOfLuggageKG;
 
-    public PassangerWagon(ComfortType comfortType) {
+    public PassangerWagon() {
+    }
+
+    public PassangerWagon(ComfortWagonType comfortType) {
         this.comfortType = comfortType;
         this.maxPassengers = comfortType.getMaxPassengers();
     }
@@ -25,7 +28,7 @@ public class PassangerWagon extends Wagon {
         setWeightOfLuggageKG(luggage + getWeightOfLuggageKG());
     }
 
-    public ComfortType getComfortType() {
+    public ComfortWagonType getComfortType() {
         return comfortType;
     }
 
@@ -41,7 +44,7 @@ public class PassangerWagon extends Wagon {
         return weightOfLuggageKG;
     }
 
-    public void setComfortType(ComfortType comfortType) {
+    public void setComfortType(ComfortWagonType comfortType) {
         this.comfortType = comfortType;
     }
 

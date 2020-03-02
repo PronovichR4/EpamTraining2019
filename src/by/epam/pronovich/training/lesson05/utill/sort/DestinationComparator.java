@@ -1,4 +1,4 @@
-package by.epam.pronovich.training.lesson05.sort;
+package by.epam.pronovich.training.lesson05.utill.sort;
 
 import by.epam.pronovich.training.lesson05.entity.PassangerTrain;
 

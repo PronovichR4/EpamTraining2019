@@ -1,23 +1,23 @@
-package by.epam.pronovich.training.lesson05.entity;
+package by.epam.pronovich.training.lesson05.entity.wagon;
 
-import by.epam.pronovich.training.lesson05.entity.enumproject.CargoType;
+import by.epam.pronovich.training.lesson05.entity.enumproject.CargoWagonType;
 
 import java.util.Objects;
 
 public class CargoWagon extends Wagon {
 
-    private CargoType cargoType;
+    private CargoWagonType cargoType;
     private int maxCapacity;
     private int maxTonnage;
     private int tonnage;
 
-    public CargoWagon(CargoType cargoType) {
+    public CargoWagon(CargoWagonType cargoType) {
         this.cargoType = cargoType;
         this.maxCapacity = cargoType.getMaxCapacity();
         this.maxTonnage = cargoType.getMaxTonnage();
     }
 
-    public CargoType getCargoType() {
+    public CargoWagonType getCargoType() {
         return cargoType;
     }
 

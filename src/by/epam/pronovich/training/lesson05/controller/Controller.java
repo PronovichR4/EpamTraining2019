@@ -1,22 +1,20 @@
 package by.epam.pronovich.training.lesson05.controller;
 
-import by.epam.pronovich.training.lesson05.entity.Depo;
-import by.epam.pronovich.training.lesson05.exception.ServiceException;
-import by.epam.pronovich.training.lesson05.service.ServiceProvider;
-import by.epam.pronovich.training.lesson05.service.TrainService;
+import by.epam.pronovich.training.lesson05.controller.command.Command;
 
 public class Controller {
 
-    public Depo getDepo() {
-        ServiceProvider instance = ServiceProvider.getINSTANCE();
-        TrainService trainService = instance.getTrainService();
-        Depo result;
-        try {
-            result = trainService.findAllTrains();
-        } catch (ServiceException e) {
-            System.out.println(e.getMessage());
-            result = null;
-        }
-        return result;
+    private final CommandProvider commandProvider = new CommandProvider();
+    private final String PARAM_DELEMITER = " ";
+    private final int COMMAND_INDEX_FROM_REQUEST = 0;
+
+    public String doAction(String request) {
+        String commandName;
+        Command executionCommand;
+        commandName = request.split(PARAM_DELEMITER)[COMMAND_INDEX_FROM_REQUEST];
+        executionCommand = commandProvider.getCommand(commandName);
+        String response;
+        response = executionCommand.execute(request);
+        return response;
     }
 }

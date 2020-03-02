@@ -1,6 +1,6 @@
 package by.epam.pronovich.training.lesson05.entity.enumproject;
 
-public enum CargoType {
+public enum CargoWagonType {
 
     BOXCAR("Крытый вагон", 138, 68),
     OPENWAGON("Полувагон", 75, 71),
@@ -11,7 +11,7 @@ public enum CargoType {
     private final int maxCapacity;
     private final int maxTonnage;
 
-    CargoType(String description, int capacity, int tonnage) {
+    CargoWagonType(String description, int capacity, int tonnage) {
         this.description = description;
         this.maxCapacity = capacity;
         this.maxTonnage = tonnage;
