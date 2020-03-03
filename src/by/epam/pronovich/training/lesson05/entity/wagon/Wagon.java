@@ -6,6 +6,9 @@ public abstract class Wagon {
 
     private int number;
 
+    public Wagon() {
+    }
+
     public int getNumber() {
         return number;
     }

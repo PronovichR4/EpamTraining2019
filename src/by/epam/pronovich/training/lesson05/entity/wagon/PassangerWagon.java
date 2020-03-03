@@ -20,6 +20,10 @@ public class PassangerWagon extends Wagon {
         this.maxPassengers = comfortType.getMaxPassengers();
     }
 
+    public static int getMaxMasLuggageKg() {
+        return MAX_MAS_LUGGAGE_KG;
+    }
+
     public void addPassanger() {
         setQuantityOFPassengers(getQuantityOFPassengers() + 1);
     }

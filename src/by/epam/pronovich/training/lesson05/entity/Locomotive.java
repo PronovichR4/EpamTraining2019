@@ -19,6 +19,26 @@ public class Locomotive {
         this.typeOfEngine = typeOfEngine;
     }
 
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public static int getCounterID() {
+        return counterID;
+    }
+
+    public static void setCounterID(int counterID) {
+        Locomotive.counterID = counterID;
+    }
+
+    public void setMaxSpeed(int maxSpeed) {
+        this.maxSpeed = maxSpeed;
+    }
+
+    public void setTypeOfEngine(EngineLocomotiveType typeOfEngine) {
+        this.typeOfEngine = typeOfEngine;
+    }
+
     public int getID() {
         return ID;
     }

@@ -14,6 +14,10 @@ public class RestaurantWagon extends Wagon {
         return table;
     }
 
+    public void setTable(int table) {
+        this.table = table;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

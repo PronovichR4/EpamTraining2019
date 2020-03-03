@@ -11,10 +11,29 @@ public class CargoWagon extends Wagon {
     private int maxTonnage;
     private int tonnage;
 
+    public CargoWagon() {
+    }
+
     public CargoWagon(CargoWagonType cargoType) {
         this.cargoType = cargoType;
         this.maxCapacity = cargoType.getMaxCapacity();
         this.maxTonnage = cargoType.getMaxTonnage();
+    }
+
+    public void setCargoType(CargoWagonType cargoType) {
+        this.cargoType = cargoType;
+    }
+
+    public void setMaxCapacity(int maxCapacity) {
+        this.maxCapacity = maxCapacity;
+    }
+
+    public void setMaxTonnage(int maxTonnage) {
+        this.maxTonnage = maxTonnage;
+    }
+
+    public void setTonnage(int tonnage) {
+        this.tonnage = tonnage;
     }
 
     public CargoWagonType getCargoType() {

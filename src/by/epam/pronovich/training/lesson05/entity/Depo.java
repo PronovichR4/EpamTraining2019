@@ -18,6 +18,10 @@ public class Depo {
         return trains;
     }
 
+    public void setTrains(List<PassangerTrain> trains) {
+        this.trains = trains;
+    }
+
     public PassangerTrain getTrain(int number) {
         PassangerTrain result = null;
         if (number <= trains.size() && number >= 1) {
